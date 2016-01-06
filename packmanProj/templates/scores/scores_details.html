@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <div id="td-container">
+            <div id="gi-container" class="td-container">
+                <br /><br /><br />
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NUM GAMES</th>
+                            <th>AVERAGE SCORE</th>
+                            <th>BEST SCORE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>YOUR STATS:</td>
+                            <td>{{ sub.num_games }}</td>
+                            <td>{{ sub.avg_score }}</td>
+                            <td>{{ sub.best_score }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>BEST TEAM STATS ({{best_team.name}}):</td>
+                            <td>{{ best_team.num_games }}</td>
+                            <td>{{ best_team.avg_score }}</td>
+                            <td>{{ best_team.best_score }}</td>
+                         </tr>
+                    </tbody>
+              </table>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

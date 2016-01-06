@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block nav-style %}grt-nav{% endblock nav-style %}
+
+{% block content %}
+    {% load staticfiles %}
+    {# Main Section #}
+    <div class="grt-s2 container">
+        <h1 class="grt-s2-h">Packman is back with avengence:</h1><br />
+        <div class="grt-s2-body">
+            <div class="col-md-4 grt-vp">
+                <img class="" src="{% static 'images/packman.png' %}"/>
+                <h5>Retro Packman</h5>
+                <p>Play a retro packman game, with lots of new and exciting screens</p>
+            </div>
+            <div class="col-md-4 grt-vp">
+                <img class="" src="{% static 'images/ghost.png' %}"/>
+                <h5>Old familiar ghosts</h5>
+                <p>Avoid the ghosts which come to haunt you</p>
+            </div>
+            <div class="col-md-4 grt-vp">
+                <img class="" src="{% static 'images/surprise.png' %}"/>
+                <h5>Win surprises</h5>
+                <p>Look for special surprises in the different screens.</p>
+            </div>
+        </div>
+    </div>
+    <div class="play-btn">
+         {# action="http://127.0.0.1:8080/index.jsp" #}
+         <form action="http://packmangame-golanbar.rhcloud.com/">
+            {% csrf_token %}
+            {{ form }}
+            <input type="hidden" name="username" value={{user.username}}>
+            <input type="submit" class="btn btn-info btn-lg" value="Start New Game">
+         </form>
+    </div>
+
+{% endblock content %}

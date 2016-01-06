@@ -1,0 +1,31 @@
+<form id="gi-form"
+     action="{% if team.uuid %}
+                {{ team.get_update_url }}
+             {% else %}
+                {% url 'team_cre' %}
+             {% endif %}"
+      method="post">
+    {% csrf_token %}
+    <div id="gi-h-w">
+        {% if team.uuid %}
+            <h3 class="gi-mh">UPDATE TEAM</h3><br />
+        {% else %}
+            <h3 class="gi-mh">CREATE A NEW TEAM</h3><br />
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p>{{ form.name }}</p>
+            <span>{{ form.name.errors }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <p>{{ form.desc }}</p>
+            <span>{{ form.desc.errors }}</span>
+        </div>
+    </div>
+    <br />
+    <input id="gi-form-submit" class="btn btn-primary" type="submit" value="SAVE">
+    <p>{{ form.non_field_errors }}</p>
+</form>

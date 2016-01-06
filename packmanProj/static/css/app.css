@@ -1,0 +1,147 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #f7fbfd;
+    font-family: 'MYRIADPRO-REGULAR',Helvetica,Arial,sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'MYRIADPRO-REGULAR',Helvetica,Arial,sans-serif !important;
+}
+
+#site-wrapper {
+    min-height: 77%;
+    width: 100%;
+    display: inline-block;
+}
+
+.footer {
+    background: #353F45;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#content-container {
+    min-height: 480px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid #cccccc;
+}
+
+#grt-container {
+    min-height: 100%;
+}
+
+.grt-nav {
+    height: 100px;
+    background-color: #f7fbfd;
+    border: none;
+}
+
+.grt-nav .navbar-brand {
+    color: #d35301;
+    font-size: 24px;
+}
+
+.grt-nav .navbar-brand:hover {
+    color: #F8501C;
+}
+
+.grt-nav .navbar-collapse ul li a {
+    color: #425c71;
+}
+
+grt-vp {
+    text-align: center;
+    margin-top: 60px;
+}
+
+grt-s2-h {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.grt-s2-body {
+    display: inline-block;
+}
+
+.p-r-none {
+    padding-right: 0 !important;
+}
+
+.sign-up {
+    margin: 24px 15px;
+    font-size: 18px;
+}
+
+#tl-container {
+    position: relative;
+    min-height: 440px;
+}
+
+
+#tl-control {
+    margin-top: 20px;
+}
+
+
+#tl-search {
+    width: 88.5%;
+    display: inline-block;
+}
+
+
+#tl-group {
+    padding: 0;
+    margin-top: 24px;
+}
+
+
+.tl-item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 18px;
+    padding-bottom: 5px;
+}
+
+
+.tl-name {
+    display: inline;
+}
+
+
+.tl-created {
+    float: right;
+}
+
+
+#tl-paginate ul {
+    padding: 0;
+}
+
+.td-container {
+    margin-bottom: 72px;
+}
+
+
+.td-headers {
+    background-color: #808080;
+    padding: 6px 24px;
+    color: #f1f1f1;
+}
+
+.nm {
+    margin: 0;
+}
+
+.play-btn {
+    position:absolute;
+    transition: .5s ease;
+    top: 60%;
+    left: 42%;
+}

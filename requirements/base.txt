@@ -1,0 +1,6 @@
+# Bleeding edge Django
+Django==1.8
+django-debug-toolbar==1.4
+psycopg2==2.6.1
+sqlparse==0.1.18
+virtualenv==13.1.2

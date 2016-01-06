@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <div id="td-container">
+            <div id="gi-container" class="td-container">
+                <div class="row gi-body">
+                    <div class="col-md-6">
+                        <h4 class="gi-sh">TEAM DETAILS:</h4>
+                        <p class="nm">CREATED BY: {{ team.owner }}</p><br />
+                        <p class="nm">CREATED ON: {{ team.created_on }}</p><br />
+                        <p class="nm">SHORT DESCRIPTION: {{ team.desc }}</p>
+                    </div>
+                    {# Join Team Link #}
+
+                    {% if sub.team == team %}
+                        <span class="pull-right">
+                            <a href=" {{ team.get_leave_url }}"
+                               class="btn btn-link p-r-none">+ Leave Team</a>
+                        </span>
+                    {% elif not sub.team %}
+                        <span class="pull-right">
+                            <a href=" {{ team.get_join_url }}"
+                               class="btn btn-link p-r-none">+ Join Team</a>
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

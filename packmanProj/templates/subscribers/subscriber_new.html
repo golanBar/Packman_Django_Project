@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Signup{% endblock title %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <div class="side-p">
+            <form id="user-reg-form" action="." method="post">
+                {% csrf_token %}
+                {# Username & Password Section #}
+                <h3>Signup to join the game</h3><br />
+                <h5 class="sn-sh">FILL IN MANDATORY DETAILS</h5>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>{{ form.username.label }}</th>
+                            <th>{{ form.email.label }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ form.username }}</td>
+                            <td>{{ form.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.username.errors }}</td>
+                            <td>{{ form.email.errors }}</td>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <th>Confirm Password</th>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password1 }}</td>
+                            <td>{{ form.password2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password1.errors }}</td>
+                            <td>{{ form.password2.errors }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {# Suscriber details Section #}
+                <h5 class="sn-sh">FILL IN OPTIONAL DETAILS</h5>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>{{ form.nickname.label }}</th>
+                            <th>{{ form.gender.label }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ form.nickname }}</td>
+                            <td>{{ form.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.nickname.errors }}</td>
+                            <td>{{ form.gender.errors }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ form.age.label }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ form.age }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.age.errors }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input class="btn btn-primary" type="submit" value="submit">
+            </form>
+            {# Credit Card Section #}
+        </div>
+    </div>
+{% endblock content %}

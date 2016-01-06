@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Team List{% endblock title %}
+
+{% block content %}
+    <div id="content-container" class="container p-none">
+        <div id="tl-container" class="side-p">
+            <div id="tl-control">
+                <h3 class="ad-mh">Teams List
+                    {# Add Team Link #}
+                    <span class="pull-right">
+                        <a href="{% url 'team_cre' %}"
+                           class="btn btn-link p-r-none">+ Add New Team</a>
+                    </span>
+                </h3>
+                {# Team Search Form #}
+            </div>
+            {# List of Teams #}
+            <ul id="tl-group" class="strip-list">
+                {% for team in teams %}
+                    <li class="tl-item">
+                        <a href="{{ team.get_absolute_url }}"><h4 class="tl-name">{{ team.name }}</h4></a>
+                        <span class="tl-created">created on {{ team.created_on }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            {# Pagination Section #}
+            {# The ListView (CBV) is responsible for setting the var 'is_paginated' to True if there are more than 5 records #}
+            {% if is_paginated %}
+                <div id="tl-paginate">
+                    <ul class="strip-list tl-pgnt-list">
+                        {# the following code will decide whether to show the 'Previous' and/or 'Next' links #}
+                        {% if page_obj.has_previous %}
+                            <li class="pull-left">
+                                <a href="{% url 'team_list' %}?page={{ page_obj.previous_page_number }}
+                                {% if request.GET.team %}&team={{ request.GET.team }}{% endif %}">Prev</a>
+                            </li>
+                        {% endif %}
+                        {% if page_obj.has_next %}
+                            <li class="pull-right">
+                                <a href="{% url 'team_list' %}?page={{ page_obj.next_page_number }}
+                                {% if request.GET.team %}&team={{ request.GET.team }}{% endif %}">Next</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
