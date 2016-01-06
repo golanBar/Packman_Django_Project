@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+from django.conf.global_settings import LOGIN_URL
 from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -119,5 +121,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
 
+# for the login_required decorator or LoginRequiredMixin
+LOGIN_URL = '/login/'
 # configure Django to redirect users to a specific page after they login.
 LOGIN_REDIRECT_URL = '/team/list/'

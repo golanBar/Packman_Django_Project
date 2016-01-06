@@ -1,3 +1,4 @@
+from braces.views import LoginRequiredMixin
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -5,6 +6,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.views.generic import UpdateView
 
 from .forms import SubscriberForm
 from .models import Subscriber
@@ -56,3 +58,6 @@ def subscriber_details(request):
         'sub': sub,
     }
     return render(request, 'subscribers/subscriber_details.html', variables)
+
+
+

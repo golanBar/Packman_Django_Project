@@ -1,7 +1,3 @@
-import uuid
-from urllib import request
-
-from django.http import HttpResponseForbidden
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
@@ -10,21 +6,22 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 
+from braces.views import LoginRequiredMixin
+
 from subscribers.models import Subscriber
 from .forms import TeamForm
 from .models import Team
 
 
-class TeamList(ListView):
+# using the LoginRequiredMixin on the CBV instead of the login_required decorator
+class TeamList(LoginRequiredMixin, ListView):
     model = Team
     paginate_by = 5
     template_name = 'teams/team_list.html'
     context_object_name = 'teams'
-
-    # protect the view so that only authenticated users can access it.
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(TeamList, self).dispatch(*args, **kwargs)
+    #@method_decorator(login_required)
+    #def dispatch(self, *args, **kwargs):
+    #    return super(TeamList, self).dispatch(*args, **kwargs)
 
 
 @login_required()  # Decorating a FBV to ensures that only authenticated users can access this page.
@@ -52,7 +49,7 @@ def team_create(request):
             return HttpResponseRedirect(redirect_url)
     else:
         team = Team(owner=request.user)
-        team.uuid = None;
+        team.uuid = None
         form = TeamForm()
 
     variables = {
@@ -69,7 +66,6 @@ def team_update(request, uuid):
     print("in team_update", "uuid:", uuid)
     team = get_object_or_404(Team, uuid=uuid)
     if team.owner != request.user:
-        print("team_update forbidden")
         # tried returning this: return HttpResponseForbidden() but i couldn;t get django to display 403.html. instead i render it directly -
         return render(request, '403.html')
 

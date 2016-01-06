@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from greetings.views import HomePage
 from django.contrib import admin
+
 from teams.views import TeamList
 
 urlpatterns = patterns(
@@ -25,7 +26,7 @@ urlpatterns = patterns(
         url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
         url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/login/'}),
         url(r'^signup/$', 'subscribers.views.subscriber_new', name='sub_new'),  # using a function based view
-        url(r'^subscriber/$', 'subscribers.views.subscriber_details', name='sub_details'),  # using a function based view
+        url(r'^subscriber/$', 'subscribers.views.subscriber_details', name='sub_det'),  # using a function based view
         url(r'^team/list/$', TeamList.as_view(), name='team_list'),  # CBV
         url(r'^team/new/$', 'teams.views.team_create', name='team_cre'),
         url(r'^team/(?P<uuid>[\w-]+)/$', 'teams.views.team_details', name='team_det'),

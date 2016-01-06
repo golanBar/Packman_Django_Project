@@ -32,7 +32,7 @@
                             {% if user.is_authenticated %}
                                 <li><a href="{% url 'team_list' %}" class="p-r-none">Teams</a></li>
                                 <li><a href="{% url 'scores_det' %}" class="p-r-none">Scores</a></li>
-                                <li><a href="{% url 'sub_details' %}" class="p-r-none">Subscriber</a></li>
+                                <li><a href="{% url 'sub_det' %}" class="p-r-none">Subscriber</a></li>
                                 <li><a href="/logout/" class="p-r-none">Logout</a></li>
                             {% else %}
                                 <li><a href="/login/">Login</a></li>

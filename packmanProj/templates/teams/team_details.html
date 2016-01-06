@@ -11,8 +11,6 @@
                         <p class="nm">CREATED ON: {{ team.created_on }}</p><br />
                         <p class="nm">SHORT DESCRIPTION: {{ team.desc }}</p>
                     </div>
-                    {# Join Team Link #}
-
                     {% if sub.team == team %}
                         <span class="pull-right">
                             <a href=" {{ team.get_leave_url }}"
@@ -22,6 +20,12 @@
                         <span class="pull-right">
                             <a href=" {{ team.get_join_url }}"
                                class="btn btn-link p-r-none">+ Join Team</a>
+                        </span>
+                    {% endif %}
+                    {% if team.owner == sub.user %}
+                        <span class="pull-right">
+                            <a href=" {{ team.get_update_url }}"
+                               class="btn btn-link p-r-none">+ Update Team</a>
                         </span>
                     {% endif %}
                 </div>

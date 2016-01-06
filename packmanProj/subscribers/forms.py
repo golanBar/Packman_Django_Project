@@ -1,10 +1,10 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import Subscriber
 
 
-class DetailsMixin(forms.ModelForm): # ModelForm is used when you want a form to be based on a model. in this case the Subscriber model.
+class DetailsMixin(forms.ModelForm): # ModelForm is used when you want a form to be based on one of your models. in this case the Subscriber model.
     class Meta:
         model = Subscriber
         fields = ('nickname', 'gender', 'age')
@@ -19,14 +19,14 @@ class DetailsMixin(forms.ModelForm): # ModelForm is used when you want a form to
 
 class SubscriberForm(DetailsMixin, UserCreationForm):
     email = forms.EmailField(
-        required=True, widget=forms.TextInput(attrs={'class':'form-control'})
+        required=True, widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     username = forms.CharField(
-        widget=forms.TextInput(attrs={'class':'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     password1 = forms.CharField(
-        widget=forms.TextInput(attrs={'class':'form-control', 'type':'password'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'password'})
     )
     password2 = forms.CharField(
-        widget=forms.TextInput(attrs={'class':'form-control', 'type':'password'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'password'})
     )
